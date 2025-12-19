@@ -43,10 +43,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 class BorrowSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(
-        default=serializers.CurrentUserDefault()
-    )
-
     class Meta:
         model = Borrow
         fields = ['id', 'book', 'borrowed_at', 'due_date', 'returned_at']
